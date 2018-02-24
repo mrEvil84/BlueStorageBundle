@@ -13,6 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Product
 {
     public const NULL_ID = 0;
+    public const NULL_NAME = '';
+    public const NULL_AMOUNT = 0;
     /**
      * @var int
      *
