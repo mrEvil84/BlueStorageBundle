@@ -103,10 +103,13 @@ class ProductService
         }
     }
 
+    /**
+     * @param DeleteProductCommand $deleteProductCommand
+     * @throws DeleteProductException
+     */
     public function deleteProduct(DeleteProductCommand $deleteProductCommand)
     {
         try {
-            //TODO
             $this->repository->deleteProduct($deleteProductCommand);
         } catch (\Throwable $exception) {
             throw new DeleteProductException(

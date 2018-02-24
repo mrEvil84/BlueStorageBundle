@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace Blue\StorageBundle\Repository;
 
+use Blue\StorageBundle\Command\DeleteProductCommand;
 use Blue\StorageBundle\Command\UpdateProductCommand;
 use Blue\StorageBundle\Entity\Product;
 use Blue\StorageBundle\Exceptions\ProductNotFoundException;
@@ -96,6 +97,21 @@ class ProductRepository extends EntityRepository
         $this->getEntityManager()->flush($product);
 
         return $product;
+    }
+
+    /**
+     * @param DeleteProductCommand $deleteProductCommand
+     * @throws ProductNotFoundException
+     */
+    public function deleteProduct(DeleteProductCommand $deleteProductCommand) : void
+    {
+        $product = $this->getEntityManager()->find(Product::class,$deleteProductCommand->getId());
+        if (null === $product) {
+            throw new ProductNotFoundException('Product not found');
+        }
+
+        $this->getEntityManager()->remove($product);
+        $this->getEntityManager()->flush();
     }
 
 }
