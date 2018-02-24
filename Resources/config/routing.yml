@@ -1,0 +1,3 @@
+#blue_storage_homepage:
+#    path:     /
+#    defaults: { _controller: BlueStorageBundle:Default:index }

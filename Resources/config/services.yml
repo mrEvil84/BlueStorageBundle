@@ -1,0 +1,8 @@
+services:
+#    blue_storage.example:
+#        class: Blue\StorageBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    product.service:
+        class: Blue\StorageBundle\Service\ProductService
+        arguments: ["@doctrine.orm.entity_manager"]

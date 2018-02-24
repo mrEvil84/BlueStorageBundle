@@ -1,0 +1,30 @@
+{
+    "name" : "blue/StorageBundle",
+    "description" : "Storage for products",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "mrEvil84",
+        "email" : "mrEvil84@gmail.com"
+    }],
+    "keywords" : [
+        "storage bundle product storage"
+    ],
+    "license" : [
+        "MIT"
+    ],
+    "require" : {
+    },
+    "autoload" : {
+        "psr-0" : {
+            "Blue\\StorageBundle" : ""
+        }
+    },
+    "target-dir" : "Blue/StorageBundle",
+    "repositories" : [{
+    }],
+    "extra" : {
+        "branch-alias" : {
+            "dev-master" : "1.0.1"
+        }
+    }
+}
