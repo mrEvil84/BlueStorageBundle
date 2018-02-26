@@ -1,10 +1,4 @@
 # ************************************************************
-# Sequel Pro SQL dump
-# Version 4541
-#
-# http://www.sequelpro.com/
-# https://github.com/sequelpro/sequelpro
-#
 # Host: 127.0.0.1 (MySQL 5.7.21-0ubuntu0.16.04.1)
 # Database: store
 # Generation Time: 2018-02-24 12:59:25 +0000
