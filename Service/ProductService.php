@@ -32,18 +32,13 @@ class ProductService
     private $repository;
 
     /**
-     * @var EntityManagerInterface
-     */
-    private $entityManager;
-
-    /**
      * ProductService constructor.
      * @param EntityManagerInterface $entityManager
+     * @param null $repository
      */
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(EntityManagerInterface $entityManager, $repository = null)
     {
-        $this->entityManager = $entityManager;
-        $this->repository = $entityManager->getRepository(Product::class);
+        $this->repository = $repository?:$entityManager->getRepository(Product::class);
     }
 
     /**
@@ -124,8 +119,5 @@ class ProductService
             );
         }
     }
-
-
-
 
 }

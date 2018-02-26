@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Blue\StorageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -44,7 +46,7 @@ class Product
      *
      * @return int
      */
-    public function getId()
+    public function getId() : int
     {
         return $this->id;
     }
@@ -56,7 +58,7 @@ class Product
      *
      * @return Product
      */
-    public function setName($name)
+    public function setName(string $name) : Product
     {
         $this->name = $name;
 
@@ -68,7 +70,7 @@ class Product
      *
      * @return string
      */
-    public function getName()
+    public function getName() : string
     {
         return $this->name;
     }
@@ -80,7 +82,7 @@ class Product
      *
      * @return Product
      */
-    public function setAmount($amount)
+    public function setAmount(int $amount) : Product
     {
         $this->amount = $amount;
 
@@ -92,7 +94,7 @@ class Product
      *
      * @return int
      */
-    public function getAmount()
+    public function getAmount() : int
     {
         return $this->amount;
     }
