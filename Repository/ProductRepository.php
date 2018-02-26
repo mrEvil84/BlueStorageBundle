@@ -8,6 +8,7 @@ use Blue\StorageBundle\Command\DeleteProductCommand;
 use Blue\StorageBundle\Command\UpdateProductCommand;
 use Blue\StorageBundle\Entity\Product;
 use Blue\StorageBundle\Exceptions\ProductNotFoundException;
+use Blue\StorageBundle\Query\GetProductByIdQuery;
 use Blue\StorageBundle\Query\ProductQuery;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\OptimisticLockException;
@@ -43,6 +44,25 @@ class ProductRepository extends EntityRepository
                   OFFSET
                     '.$productQuery->getPage();
 
+
+        $query = $this->getEntityManager()->createNativeQuery($sql, $this->getResultMapping());
+
+        return $query->getArrayResult();
+    }
+
+    /**
+     * @param GetProductByIdQuery $productByIdQuery
+     * @return array
+     */
+    public function findOneProduct(GetProductByIdQuery $productByIdQuery) : array
+    {
+        $sql = '
+                  SELECT 
+                    id, name, amount 
+                  FROM 
+                    product 
+                  WHERE 
+                     id =' . $productByIdQuery->getId();
 
         $query = $this->getEntityManager()->createNativeQuery($sql, $this->getResultMapping());
 

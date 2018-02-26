@@ -9,6 +9,7 @@ use Blue\StorageBundle\Entity\Product;
 use Blue\StorageBundle\Exceptions\AddProductException;
 use Blue\StorageBundle\Exceptions\DeleteProductException;
 use Blue\StorageBundle\Exceptions\UpdateProductException;
+use Blue\StorageBundle\Query\GetProductByIdQuery;
 use Blue\StorageBundle\Query\MinAmountProductQuery;
 use Blue\StorageBundle\Query\NonExistingProductQuery;
 use Blue\StorageBundle\Query\ProductQuery;
@@ -57,6 +58,10 @@ class ProductService
 
         if ($productQuery instanceof NonExistingProductQuery) {
             return $this->repository->findProducts($productQuery, self::NON_EXISTING_PRODUCTS);
+        }
+
+        if ($productQuery instanceof GetProductByIdQuery) {
+            return$this->repository->findOneProduct($productQuery);
         }
 
         return $this->repository->findProducts($productQuery, self::EXISTING_PRODUCTS);
